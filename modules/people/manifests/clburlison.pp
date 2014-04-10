@@ -1,1 +1,3 @@
-include people::clburlison::applications
+class people::clburlison {
+	include people::clburlison::applications
+}
