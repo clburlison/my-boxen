@@ -1,4 +1,4 @@
-class people::glarizza::applications {
+class people::clburlison::applications {
   include caffeine
   include chrome
   include dropbox
