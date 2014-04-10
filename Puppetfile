@@ -59,3 +59,8 @@ github "xquartz",     "1.1.1"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+
+mod "caffeine",     "1.0.0",   :github_tarball => "boxen/puppet-caffeine"
+mod "chrome",     "1.1.2",   :github_tarball => "boxen/puppet-chrome"
+mod "dropbox",     "1.2.0",   :github_tarball => "boxen/puppet-dropbox"
+mod "property_list_key",  "0.2.0",   :github_tarball => "glarizza/puppet-property_list_key"
