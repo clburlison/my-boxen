@@ -24,12 +24,12 @@ class people::clburlison::config {
   # License VMWare Fusion 6 #
   ###########################
   
-  file { "/Users/${::luser}/Dropbox/Config/Preferences/System/Library/VMWare Fusion/license-fusion-60-e3-201303":
-	ensure  => link,
-    force   => true,
-	target  => "/Library/VMWare Fusion/license-fusion-60-e3-201303",
-    owner   => root,
-    mode    => 0644,
-	require => File["/Applications/VMWare Fusion.app/"]
-  } 
+  # file { "/Library/VMWare Fusion/license-fusion-60-e3-201303":
+  #  	ensure  => present,
+  #  	source	=> "/Users/${::luser}/Dropbox/Config/Preferences/System/Library/VMWare Fusion/license-fusion-60-e3-201303",
+  #  	owner   => root,
+  #  	group   => wheel,
+  #    mode    => 0644,
+  #  } 
+
 }
