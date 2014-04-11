@@ -14,8 +14,8 @@ class people::clburlison::applications {
   include steam
   include teamviewer
   include textmate::textmate2::release
-  #include textwrangler
-  include utorrent
+  # include textwrangler
+  # include utorrent
   include vagrant
   include vlc
   include vmware_fusion
