@@ -9,12 +9,6 @@ class people::clburlison::ssh_keys (
         owner => "${::luser}",
         mode => '0600',
 	}
-    
-	file { "/Users/${::luser}/.ssh/amazon_ac2.pem":
-		source => "/Users/${::luser}/Dropbox/Config/User/ssh keys/amazon_ac2.pem",
-        owner => "${::luser}",
-        mode => '0600',
-	}
 	
 	file { "/Users/${::luser}/.ssh/birdville_rsa":
 		source => "/Users/${::luser}/Dropbox/Config/User/ssh keys/birdville_rsa",
