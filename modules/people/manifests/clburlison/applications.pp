@@ -7,6 +7,7 @@ class people::clburlison::applications {
   include firefox
   include handbrake
   include sequel_pro
+  include sourcetree
   include steam
   include teamviewer
   include textmate::textmate2::release
