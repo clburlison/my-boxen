@@ -26,18 +26,13 @@ class people::clburlison::applications {
     provider => compressed_app,
   }
   
-  package { 'Remote Desktop':
-	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",
-	provider => pkgdmg,
-  }
-  
   package { 'MunkiAdmin':
       provider => 'appdmg',
       source   => 'https://github.com/hjuutilainen/munkiadmin/releases/download/v0.3.0/MunkiAdmin-0.3.0.dmg',
   }
 
   package {'Textwrangler':
-	provider => 'pkgdmg',
+	provider => 'appdmg',
 	source   => 'http://pine.barebones.com/files/TextWrangler_4.5.8.dmg',
   }
   
