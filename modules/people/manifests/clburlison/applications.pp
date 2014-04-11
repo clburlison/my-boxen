@@ -1,8 +1,4 @@
-class people::clburlison::applications (
-  $my_homedir   = $people::clburlison::params::my_homedir,
-  $my_sourcedir = $people::clburlison::params::my_sourcedir,
-  $my_username  = $people::clburlison::params::my_username
-) {
+class people::clburlison::applications {
   include autodmg
   include caffeine
   include chrome
@@ -22,7 +18,7 @@ class people::clburlison::applications (
   include vmware_fusion
   
   package {'7zX':
-	source   => '/Users/${my_homedir}/Dropbox/Config/Software/7xX/7zX_1.7.1.dmg',
+	source   => "/Users/${::luser}/Dropbox/Config/Software/7xX/7zX_1.7.1.dmg",
 	provider => 'appdmg',
   }
   
@@ -51,10 +47,10 @@ class people::clburlison::applications (
     provider => 'compressed_app',
   }
   
-  package {'Carbon Copy Cloner':
-	source   => '/Users/${my_homedir}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip',
-	provider => 'compressed_app',
-  }
+	#   package {'Carbon Copy Cloner':
+	# source   => "/Users/${::luser}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip",
+	# provider => 'compressed_app',
+	#   }
   
   package { 'lingonx':
     source   => "http://www.peterborgapps.com/downloads/LingonX.zip",
@@ -72,7 +68,7 @@ class people::clburlison::applications (
   }
 
   package { 'Remote Desktop':
-  	source	 => "/Users/${my_homedir}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",
+  	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",
   	provider => 'appdmg',
   }
   
