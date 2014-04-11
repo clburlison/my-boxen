@@ -55,7 +55,7 @@ class people::clburlison::applications {
 	# provider => 'compressed_app',
 	#   }
   
-  package { 'disk inventory x'
+  package { 'disk inventory x':
  	 source   => "/Users/${::luser}/Dropbox/Config/Software/DiskInventoryX/DIX1.0Universal.dmg",
  	 provider => 'appdmg',
   }
