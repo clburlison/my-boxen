@@ -1,4 +1,8 @@
-class people::clburlison::applications {
+class people::clburlison::applications (
+  $my_homedir   = $people::glarizza::params::my_homedir,
+  $my_sourcedir = $people::glarizza::params::my_sourcedir,
+  $my_username  = $people::glarizza::params::my_username
+) {
   include autodmg
   include caffeine
   include chrome
@@ -18,7 +22,7 @@ class people::clburlison::applications {
   include vmware_fusion
   
   package {'7zX':
-	source   => '/Users/${::luser}/Dropbox/Config/Software/7xX/7zX_1.7.1.dmg',
+	source   => '/Users/${my_homedir}/Dropbox/Config/Software/7xX/7zX_1.7.1.dmg',
 	provider => 'appdmg',
   }
   
@@ -48,7 +52,7 @@ class people::clburlison::applications {
   }
   
   package {'Carbon Copy Cloner':
-	source   => '/Users/${::luser}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip',
+	source   => '/Users/${my_homedir}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip',
 	provider => 'compressed_app',
   }
   
@@ -68,7 +72,7 @@ class people::clburlison::applications {
   }
 
   package { 'Remote Desktop':
-  	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",
+  	source	 => "/Users/${my_homedir}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",
   	provider => 'appdmg',
   }
   
