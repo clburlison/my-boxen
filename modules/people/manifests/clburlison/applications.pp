@@ -5,14 +5,17 @@ class people::clburlison::applications {
   include colloquy
   include crashplan
   include dropbox
+  include evernote
   include firefox
   include handbrake
+  include istatmenus4
   include sequel_pro
   include sourcetree
   include steam
   include teamviewer
   include textmate::textmate2::release
   #include textwrangler
+  include utorrent
   include vagrant
   include vlc
   include vmware_fusion
@@ -51,6 +54,11 @@ class people::clburlison::applications {
 	# source   => "/Users/${::luser}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip",
 	# provider => 'compressed_app',
 	#   }
+  
+  package { 'disk inventory x'
+ 	 source   => "/Users/${::luser}/Dropbox/Config/Software/DiskInventoryX/DIX1.0Universal.dmg",
+ 	 provider => 'appdmg',
+  }
   
   package { 'lingonx':
     source   => "http://www.peterborgapps.com/downloads/LingonX.zip",
