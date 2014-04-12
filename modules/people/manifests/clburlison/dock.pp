@@ -1,8 +1,4 @@
-class people::clburlison::dock (
-    $my_homedir   = $people::clburlison::params::my_homedir,
-    $my_sourcedir = $people::clburlison::params::my_sourcedir,
-    $my_username  = $people::clburlison::params::my_username
-    ){
+class people::clburlison::dock {
 
     include dockutil
 
@@ -97,7 +93,6 @@ class people::clburlison::dock (
         label    => "Spotify",
         position => 13,
         action   => "add",
-        require  => Class['spotify'],
     }
 	
     dockutil::item { 'VLC':
@@ -205,10 +200,9 @@ class people::clburlison::dock (
     
     dockutil::item { 'Managed Software Center':
         item     => "/Applications/Managed Software Center.app",
-        label    => "IRC Cloud",
+        label    => "Managed Software Center",
         position => 28,
         action   => "add",
-        require  => Class['fluid'],
     }
     
     dockutil::item { '1Password 4':
@@ -233,7 +227,13 @@ class people::clburlison::dock (
         label  => "Launchpad",
         action => "remove",
     }
-    
+	
+    dockutil::item { 'Remove App Store':
+        item   => "/Applications/App Store.app",
+        label  => "App Store",
+        action => "remove",
+    }  
+	 
     dockutil::item { 'Remove Mission Control':
         item   => "/Applications/Mission Control.app",
         label  => "Mission Control",
