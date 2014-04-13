@@ -29,10 +29,17 @@ class people::clburlison::config (
   
   # TextMate
   repository { 'puppet-textmate-bundle':
-  	  source  => 'puppet-textmate-bundle/puppet-textmate-bundle',
-	  path    => "${my_sourcedir}/git/puppet-textmate-bundle",
-	  require => File["${my_sourcedir}/git"],
+	  source  => 'puppet-textmate-bundle/puppet-textmate-bundle',
+	  path    => "${my_sourcedir}/others/puppet-textmate-bundle",
+	  require => File["${my_sourcedir}/others"],
   }
+
+  file { "/Users/${::luser}/Library/Application Support/TextMate/Managed/Bundles/Puppet.tmbundle":
+	  ensure  => link,
+      force   => true,
+	  target  => "${my_sourcedir}/Others/puppet-textmate-bundle",
+	  require => Repository['puppet-textmate-bundle']
+  } 
 
   ###################
   # Config Settings #
