@@ -71,7 +71,7 @@ class people::clburlison::applications {
   }
   
   package { 'platypus':
-    source   => "http://sveinbjorn.org/files/software/platypus.zip",
+    source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
     provider => 'compressed_app',
   }
 
