@@ -50,10 +50,10 @@ class people::clburlison::applications {
     provider => 'compressed_app',
   }
   
-	#   package {'Carbon Copy Cloner':
-	# source   => "/Users/${::luser}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip",
-	# provider => 'compressed_app',
-	#   }
+  /* package {'Carbon Copy Cloner':
+	source   => "/Users/${::luser}/Dropbox/Config/Software/CarbonCopyCloner/ccc-3.5.4.zip",
+	provider => 'compressed_app',
+  } */
   
   package { 'disk inventory x':
  	 source   => "/Users/${::luser}/Dropbox/Config/Software/DiskInventoryX/DIX1.0Universal.dmg",
