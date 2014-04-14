@@ -54,7 +54,7 @@ class people::clburlison::dock {
     }
 	
     dockutil::item { 'Adobe Premiere Pro CS6':
-        item     => "/Applications/Adobe Premeire Pro CS6/Adobe Premeire Pro CS6.app",
+        item     => "/Applications/Adobe Premiere Pro CS6/Adobe Premiere Pro CS6.app",
         label    => "Adobe Premeire Pro CS6",
         position => 8,
         action   => "add",
@@ -213,7 +213,7 @@ class people::clburlison::dock {
     }
 	
     dockutil::item { 'System Preferences':
-        item     => "/Applications/Utilities/System Preferences.app",
+        item     => "/Applications/System Preferences.app",
         label    => "System Preferences",
         position => 30,
         action   => "add",
