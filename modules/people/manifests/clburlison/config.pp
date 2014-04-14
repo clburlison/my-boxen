@@ -21,12 +21,27 @@ class people::clburlison::config (
 
   # Stop Preview re-opening documents
   boxen::osx_defaults { 'Stop Preview re-opening documents':
-	  ensure => present,
-	  domain => 'com.apple.Preview',
-	  key    => 'NSQuitAlwaysKeepsWindows',
-	  value  => 'NO',
+	ensure => present,
+	domain => 'com.apple.Preview',
+	key    => 'NSQuitAlwaysKeepsWindows',
+	value  => 'NO',
   }
-
+  
+  boxen::osx_defaults { 'Disk util debug menu':
+	user    => $::boxen_user,
+	domain	=> 'com.apple.DiskUtility',
+	key		=> 'DUDebugMenuEnabled',
+	value	=> 1,
+  }
+  
+  boxen::osx_defaults { 'Use AirDrop over every interface':
+    user   => $::boxen_user,
+    key    => 'BrowseAllInterfaces',
+    domain => 'com.apple.NetworkBrowser',
+    value  => 1,
+    notify => Exec['killall Finder'];
+  }
+  
   ###################
   # Config Settings #
   ###################
