@@ -70,10 +70,10 @@ class people::clburlison::applications {
 	provider => 'appdmg',
   }
   
-  package { 'platypus':
-    source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
-    provider => 'compressed_app',
-  }
+  # package { 'platypus':
+  #   source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
+  #   provider => 'compressed_app',
+  # }
 
   package { 'Remote Desktop':
   	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",
