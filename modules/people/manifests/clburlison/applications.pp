@@ -46,10 +46,10 @@ class people::clburlison::applications {
 	provider => 'pkgdmg',
   }
   
-	#   package {'Android File Transfer':
-	# provider => 'appdmg',
-	# source   => 'https://dl.google.com/dl/androidjumper/mtp/current/androidfiletransfer.dmg',
-	#   }
+  /*package {'Android File Transfer':
+	provider => 'appdmg',
+	source   => 'https://dl.google.com/dl/androidjumper/mtp/current/androidfiletransfer.dmg',
+  }*/
   
   package { 'Angry IP Scanner':
     source   => "http://github.com/angryziber/ipscan/releases/download/3.2.3/ipscan-mac-3.2.3.zip",
@@ -76,6 +76,11 @@ class people::clburlison::applications {
  	 provider => 'appdmg',
   }
   
+  package { 'Geektool':
+    source   => "http://download.tynsoe.org/GeekTool-3.1.1-311.zip",
+    provider => 'compressed_app',
+  }
+ 
   package { 'lingonx':
     source   => "http://www.peterborgapps.com/downloads/LingonX.zip",
     provider => 'compressed_app',
@@ -86,10 +91,10 @@ class people::clburlison::applications {
 	provider => 'appdmg',
   }
   
-  # package { 'platypus':
-  #   source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
-  #   provider => 'compressed_app',
-  # }
+  /*package { 'platypus':
+    source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
+    provider => 'compressed_app',
+  }*/
 
   package { 'Remote Desktop':
   	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/RemoteDesktop.dmg",

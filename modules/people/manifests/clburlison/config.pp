@@ -16,6 +16,7 @@ class people::clburlison::config (
   include osx::finder::show_all_on_desktop
   include osx::finder::unhide_library
   include osx::finder::enable_quicklook_text_selection
+  include osx::global::expand_save_dialog
   include osx::universal_access::ctrl_mod_zoom # enables zoom by scrolling while holding Control
   include osx::no_network_dsstores # disable creation of .DS_Store files on network shares
 
@@ -42,6 +43,87 @@ class people::clburlison::config (
     notify => Exec['killall Finder'];
   }
   
+  boxen::osx_defaults { 'Disable Gatekeeper':
+    domain   => '/var/db/SystemPolicy-prefs.plist',
+    key    => 'enabled',
+    value  => 'no',
+  }
+  
+  boxen::osx_defaults { 'Disable the "Are you sure you want to open this application?" dialog':
+	key    => 'LSQuarantine',
+  	domain => 'com.apple.LaunchServices',
+  	value  => 'true',
+  }
+  
+  boxen::osx_defaults { 'Copy text from QuickLook':
+      ensure => present,
+      domain => 'com.apple.finder',
+      key    => 'QLEnableTextSelection',
+      value  => 'YES',
+  }
+  
+  boxen::osx_defaults { 'Finder Status Bar':
+	 ensure	=> 	present,
+	 domain	=>	'com.apple.finder',
+	 key	=>	'ShowStatusBar',
+	 value	=>	'YES',
+  }
+  
+  boxen::osx_defaults {
+      'Prevent Time Machine from prompting to use new hard drives as backup volume':
+        ensure => present,
+        key    => 'DoNotOfferNewDisksForBackup',
+        domain => 'com.apple.TimeMachine',
+        value  => 'true',
+        type   => 'bool',
+        user   => $::boxen_user;
+  }
+  
+  boxen::osx_defaults { 'Show time connected in the VPN menubar item':
+      domain => 'com.apple.networkConnect',
+      key    => 'VPNShowTime',
+      type   => 'bool',
+      value  => 'true',
+  }
+  
+  # Config the luggage
+  file { "/usr/local/share/luggage/luggage.local":
+      ensure  => link,
+      target  => "${my_sourcedir}/mine/luggage_local/luggage.local",
+      require => Boxen::Project['luggage_local']
+  }
+  
+  # Configure my personal oh-my-zsh settings
+  repository { 'oh-my-zsh':
+	source => 'clburlison/oh-my-zsh',
+	path   => "/Users/${::luser}/.oh-my-zsh",
+    #ensure => latest,
+   }
+
+  file { "/Users/${::luser}/.zshrc":
+	ensure  => link,
+	target  => "/Users/${::luser}/.oh-my-zsh/clburlison-zshrc",
+	require => Repository['oh-my-zsh']
+  }
+  
+  file { "/Users/${::luser}/src/mine/oh-my-zsh":
+	ensure  => link,
+	target  => "/Users/${::luser}/.oh-my-zsh/",
+	require => Repository['oh-my-zsh']
+  }
+  
+  # Changes the default shell to the zsh from Homebrew. Uses osx_chsh from boxen/puppet-osx
+  osx_chsh { $::luser:
+	shell   => '/opt/boxen/homebrew/bin/zsh',
+	require => Package['zsh'],
+  }
+
+  file_line { 'add zsh to /etc/shells':
+	path    => '/etc/shells',
+	line    => "${boxen::config::homebrewdir}/bin/zsh",
+	require => Package['zsh'],
+  }
+ 
   ###################
   # Config Settings #
   ###################
