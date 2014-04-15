@@ -5,7 +5,7 @@ class projects::luggage_local (
 	){
 
 	boxen::project { 'luggage_local':
-		dir		=>	"${my_sourcedir}/others/luggage_local",
+		dir		=>	"${my_sourcedir}/mine/luggage_local",
 		source	=>	'clburlison/luggage_local',
 	}
 }

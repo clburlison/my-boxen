@@ -4,7 +4,7 @@ class projects::aamporter (
   	$my_username  = $people::clburlison::params::my_username
 	){
 	boxen::project { 'aamporter':
-		dir		=>	"${my_sourcedir}/others/aamporter",
+		dir		=>	"${my_sourcedir}/work/aamporter",
 		source	=>	'clburlison/aamporter',
 	}
 }
