@@ -20,6 +20,16 @@ class people::clburlison::applications {
   include vlc
   include vmware_fusion
   
+  $homebrew_packages = [
+    's3cmd',
+    'curl',
+    'zsh',
+  ]
+
+  ## Declare all Homebrew packages at once
+  package { $homebrew_packages: }
+  
+  
   package {'7zX':
 	source   => "/Users/${::luser}/Dropbox/Config/Software/7xX/7zX_1.7.1.dmg",
 	provider => 'appdmg',

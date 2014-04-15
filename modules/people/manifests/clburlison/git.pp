@@ -15,12 +15,4 @@ class people::clburlison::repositories (
   git::config::global{ 'user.email':
     value => 'clburlison@gmail.com',
   }
-
-  ################
-  # Repositories #
-  ################
-
-  repository { "${my_sourcedir}/mine/blog":
-    source => 'clburlison/blog',
-  }
 }
