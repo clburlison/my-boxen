@@ -9,6 +9,11 @@ GITHUBTARBALL
     caffeine (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-calibre
+  specs:
+    calibre (3.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-chrome
   specs:
     chrome (1.1.2)
@@ -42,6 +47,11 @@ GITHUBTARBALL
   remote: boxen/puppet-firefox
   specs:
     firefox (1.1.8)
+
+GITHUBTARBALL
+  remote: boxen/puppet-flux
+  specs:
+    flux (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -94,6 +104,11 @@ GITHUBTARBALL
     nodejs (3.7.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-onepassword
+  specs:
+    onepassword (1.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-openssl
   specs:
     openssl (1.0.0)
@@ -129,9 +144,19 @@ GITHUBTARBALL
     sequel_pro (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.0.8)
+
+GITHUBTARBALL
   remote: boxen/puppet-sourcetree
   specs:
     sourcetree (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-spotify
+  specs:
+    spotify (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-steam
@@ -157,6 +182,11 @@ GITHUBTARBALL
   remote: boxen/puppet-textwrangler
   specs:
     textwrangler (1.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-tunnelblick
+  specs:
+    tunnelblick (1.0.6)
 
 GITHUBTARBALL
   remote: boxen/puppet-utorrent
@@ -222,6 +252,7 @@ DEPENDENCIES
   autodmg (= 0.0.1)
   boxen (= 3.4.2)
   caffeine (= 1.0.0)
+  calibre (= 3.1.0)
   chrome (= 1.1.2)
   colloquy (= 1.0.0)
   crashplan (= 1.0.1)
@@ -230,6 +261,7 @@ DEPENDENCIES
   dropbox (= 1.2.0)
   evernote (= 2.0.5)
   firefox (= 1.1.8)
+  flux (= 1.0.1)
   foreman (= 1.2.0)
   gcc (= 2.0.100)
   git (= 2.3.0)
@@ -243,6 +275,7 @@ DEPENDENCIES
   module-data (= 0.0.3)
   nginx (= 1.4.3)
   nodejs (= 3.7.0)
+  onepassword (= 1.1.0)
   openssl (= 1.0.0)
   osx (= 2.2.2)
   phantomjs (= 2.3.0)
@@ -251,13 +284,16 @@ DEPENDENCIES
   repository (= 2.3.0)
   ruby (= 7.3.0)
   sequel_pro (= 1.0.0)
+  skype (= 1.0.8)
   sourcetree (= 1.0.0)
+  spotify (= 1.0.1)
   stdlib (= 4.1.0)
   steam (= 1.0.1)
   sudo (= 1.0.0)
   teamviewer (= 1.0.1)
   textmate (= 1.1.0)
   textwrangler (= 1.0.2)
+  tunnelblick (= 1.0.6)
   utorrent (= 1.1.1)
   vagrant (= 3.0.7)
   vlc (= 1.0.5)
