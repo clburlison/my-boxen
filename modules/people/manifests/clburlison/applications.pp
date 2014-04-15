@@ -1,20 +1,26 @@
 class people::clburlison::applications {
   include autodmg
   include caffeine
+  include calibre
   include chrome
   include colloquy
   include crashplan
   include dropbox
   include evernote
   include firefox
+  include flux
   include handbrake
   include istatmenus4
+  include onepassword
   include sequel_pro
+  include skype
   include sourcetree
+  include spotify
   include steam
   include teamviewer
   include textmate::textmate2::release
   # include textwrangler
+  include tunnelblick
   # include utorrent
   include vagrant
   include vlc
