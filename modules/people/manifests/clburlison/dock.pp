@@ -31,21 +31,6 @@ class people::clburlison::dock {
         action   => "add",
     }
 	
-    dockutil::item { 'Contacts':
-        item     => "/Applications/Contacts.app",
-        label    => "Contacts",
-        position => 5,
-        action   => "add",
-    }
-	
-    dockutil::item { 'Steam':
-        item     => "/Applications/Steam.app",
-        label    => "Steam",
-        position => 6,
-        action   => "add",
-        require  => Class['steam'],
-    }
-	
     dockutil::item { 'Adobe Photoshop CS6':
         item     => "/Applications/Adobe Photoshop CS6/Adobe Photoshop CS6.app",
         label    => "Adobe Photoshop CS6",
@@ -81,13 +66,6 @@ class people::clburlison::dock {
         action   => "add",
     }
 	
-    dockutil::item { 'iTunes':
-        item     => "/Applications/iTunes.app",
-        label    => "iTunes",
-        position => 12,
-        action   => "add",
-    }
-	
     dockutil::item { 'Spotify':
         item     => "/Applications/Spotify.app",
         label    => "Spotify",
@@ -103,14 +81,6 @@ class people::clburlison::dock {
         require  => Class['vlc'],
     }
 	
-    dockutil::item { 'QuickTime Player 7':
-        item     => "/Applications/Utilities/QuickTime Player 7.app",
-        label    => "QuickTime Player 7",
-        position => 15,
-        action   => "add",
-        require  => Class['textmate::textmate2::release'],
-    }
-	
     dockutil::item { 'TextWrangler':
         item     => "/Applications/TextWrangler.app",
         label    => "TextWrangler",
@@ -124,13 +94,6 @@ class people::clburlison::dock {
         position => 17,
         action   => "add",
         require  => Class['textmate::textmate2::release'],
-    }
-	
-    dockutil::item { 'Microsoft Remote Desktop':
-        item     => "/Applications/Microsoft Remote Desktop.app",
-        label    => "Microsoft Remote Desktop",
-        position => 18,
-        action   => "add",
     }
 	
     dockutil::item { 'Remote Desktop':
@@ -155,18 +118,25 @@ class people::clburlison::dock {
         position => 21,
         action   => "add",
     }
-	
-    dockutil::item { 'Sequel Pro':
-        item     => "/Applications/Sequel Pro.app",
-        label    => "Sequel Pro",
-        position => 22,
+
+    dockutil::item { 'MunkiAdmin':
+        item     => "/Applications/MunkiAdmin.app",
+        label    => "MunkiAdmin",
+        position => 26,
         action   => "add",
     }
-	
-    dockutil::item { 'Transmit':
-        item     => "/Applications/Transmit.app",
-        label    => "Transmit",
-        position => 23,
+    
+    dockutil::item { 'Managed Software Center':
+        item     => "/Applications/Managed Software Center.app",
+        label    => "Managed Software Center",
+        position => 27,
+        action   => "add",
+    }
+    
+    dockutil::item { '1Password 4':
+        item     => "/Applications/1Password 4.app",
+        label    => "1Password 4",
+        position => 28,
         action   => "add",
     }
 	
@@ -176,51 +146,56 @@ class people::clburlison::dock {
         position => 24,
         action   => "add",
     }
-    
-	dockutil::item { 'Disk Utility':
-        item     => "/Applications/Utilities/Disk Utility.app",
-        label    => "Disk Utility",
-        position => 25,
-        action   => "add",
-    }
-   
-    dockutil::item { 'Server':
-        item     => "/Applications/Server.app",
-        label    => "Server",
-        position => 26,
-        action   => "add",
-    }
-
-    dockutil::item { 'MunkiAdmin':
-        item     => "/Applications/MunkiAdmin.app",
-        label    => "MunkiAdmin",
-        position => 27,
-        action   => "add",
-    }
-    
-    dockutil::item { 'Managed Software Center':
-        item     => "/Applications/Managed Software Center.app",
-        label    => "Managed Software Center",
-        position => 28,
-        action   => "add",
-    }
-    
-    dockutil::item { '1Password 4':
-        item     => "/Applications/1Password 4.app",
-        label    => "1Password 4",
-        position => 29,
-        action   => "add",
-    }
 	
     dockutil::item { 'System Preferences':
         item     => "/Applications/System Preferences.app",
         label    => "System Preferences",
-        position => 30,
+        position => 29,
         action   => "add",
     }
         
-
+		
+		
+    ## Add shortcuts to folders
+	dockutil::item { 'munki_repo':
+        item     => "/Applications/munki_repo.command",
+        label    => "munki_repo",
+        action   => "add",
+		position => 1,
+		#require  => Class['munki_repo.command']
+    }
+	
+	dockutil::item { 'Applications folder':
+        item     => "/Applications",
+        label    => "Applications",
+        action   => "add",
+		position => 2,
+    }
+	
+    dockutil::item { 'Documents folder':
+        item     => "~/Documents",
+        label    => "Documents",
+        action   => "add",
+		position => 3,
+    }
     
+	dockutil::item { 'Downloads folder':
+        item     => "~/Downloads",
+        label    => "Downloads",
+        action   => "add",
+		position => 4,
+    }
+	
+	# no longer want this in my dock
+    /*dockutil::item { '~/src':
+        item     => "~/src",
+        label    => "src",
+        action   => "add",
+		position => 5,
+		}*/
+    
+	
+	
     ## Remove the default crap    
     dockutil::item { 'Remove Launchpad':
         item   => "/Applications/Launchpad.app",
