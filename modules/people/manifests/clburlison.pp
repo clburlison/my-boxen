@@ -1,4 +1,8 @@
-class people::clburlison{
+class people::clburlison (
+  $my_username  = $people::clburlison::params::my_username,
+  $my_homedir   = $people::clburlison::params::my_homedir,
+  $my_sourcedir = $people::clburlison::params::my_sourcedir,
+) inherits people::clburlison::params {
     include people::clburlison::applications
     include people::clburlison::config
 	include people::clburlison::dock

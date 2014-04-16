@@ -100,11 +100,12 @@ class people::clburlison::config (
     #ensure => latest,
    }
 
-  file { "/Users/${::luser}/.zshrc":
+  # this is now managed with my dotfiles repo
+  /*file { "/Users/${::luser}/.zshrc":
 	ensure  => link,
 	target  => "/Users/${::luser}/.oh-my-zsh/clburlison-zshrc",
 	require => Repository['oh-my-zsh']
-  }
+  }*/
   
   file { "/Users/${::luser}/src/mine/oh-my-zsh":
 	ensure  => link,

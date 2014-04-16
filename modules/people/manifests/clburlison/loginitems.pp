@@ -24,7 +24,7 @@ class people::clburlison::loginitems {
 	osx_login_item { 'Flux':
 	   name => 'flux',
 	   path => '/Applications/Flux.app',
-	   hidden => true,
+	   hidden => false,
 	   require => Class['flux'],
 	}
 	
