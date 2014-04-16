@@ -138,7 +138,7 @@ class people::clburlison::dock {
         label    => "Remote Desktop",
         position => 19,
         action   => "add",
-		require  => package['Remote Desktop']
+		require  => Package['Remote Desktop']
     }
 	
     dockutil::item { 'VMWare':

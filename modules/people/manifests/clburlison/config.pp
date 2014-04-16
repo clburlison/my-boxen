@@ -9,9 +9,9 @@ class people::clburlison::config (
     mode  => '0644',
   }
 
-  ###############
-  # User Config #
-  ###############
+  ##########################
+  # Defaults Configuration #
+  ##########################
   # Shows ext hd, hd, mounted servers, & removal media on desktop
   include osx::finder::show_all_on_desktop
   include osx::finder::unhide_library
@@ -86,6 +86,10 @@ class people::clburlison::config (
       value  => 'true',
   }
   
+  ##############################
+  # the luggage and zsh config #
+  ##############################
+  
   # Config the luggage
   file { "/usr/local/share/luggage/luggage.local":
       ensure  => link,
@@ -124,10 +128,20 @@ class people::clburlison::config (
 	line    => "${boxen::config::homebrewdir}/bin/zsh",
 	require => Package['zsh'],
   }
+
+  #####################
+  # Setup my dotfiles #
+  #####################
+  # bootstrap.sh will need to be run manually. this is to make sure you don't accidentally overwrite files.
+  repository { 'dotfiles':
+	source => 'clburlison/dotfiles',
+	path   => "/Users/${::luser}/src/mine/dotfiles",
+   }
+   
  
-  ###################
-  # Config Settings #
-  ###################
+  ################
+  # Recovery MSG #
+  ################
   include osx::global::expand_save_dialog
   
   if ($::hostname == "011-adm-maccb") or ($::hostname == "boxen"){
