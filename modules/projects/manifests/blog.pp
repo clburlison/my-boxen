@@ -7,4 +7,10 @@ class projects::blog (
 		dir		=>	"${my_sourcedir}/mine/blog",
 		source	=>	'clburlison/blog',
 	}
+	
+	
+    file { "/Users/${::luser}/blog":
+  		ensure  => link,
+  		target  => "/Users/${::luser}/src/mine/blog",
+    }
 }
