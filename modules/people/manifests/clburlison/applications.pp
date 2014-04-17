@@ -95,6 +95,11 @@ class people::clburlison::applications {
 	provider => 'appdmg',
   }
   
+  package { 'PackageMaker':
+  source   => "/Users/${::luser}/Dropbox/Config/Software/PackageMaker/PackageMaker-3.0.6.dmg",
+  provider => 'appdmg',
+  }
+  
   /*package { 'platypus':
     source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
     provider => 'compressed_app',
