@@ -15,6 +15,7 @@ class people::clburlison::dock {
         label    => "2Do",
         position => 2,
         action   => "add",
+		require  => Package['2Do']
     }
 	
     dockutil::item { 'Mail':
@@ -208,6 +209,12 @@ class people::clburlison::dock {
         label  => "App Store",
         action => "remove",
     }  
+	
+    dockutil::item { 'Remove Contacts':
+        item   => "/Applications/Contacts.app",
+        label  => "Contacts",
+        action => "remove",
+    }  
 	 
     dockutil::item { 'Remove Mission Control':
         item   => "/Applications/Mission Control.app",
@@ -266,6 +273,24 @@ class people::clburlison::dock {
     dockutil::item { 'Remove iBooks':
         item   => "/Applications/iBooks.app",
         label  => "iBooks",
+        action => "remove",
+    }
+	
+    dockutil::item { 'Remove iTunes':
+        item   => "/Applications/iTunes.app",
+        label  => "iTunes",
+        action => "remove",
+    }
+	
+    dockutil::item { 'Remove Keynote':
+        item   => "/Applications/Keynote.app",
+        label  => "Keynote",
+        action => "remove",
+    }
+	
+    dockutil::item { 'Remove Numbers':
+        item   => "/Applications/Numbers.app",
+        label  => "Numbers",
         action => "remove",
     }
 }

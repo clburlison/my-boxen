@@ -34,7 +34,11 @@ class people::clburlison::applications {
 
   ## Declare all Homebrew packages at once
   package { $homebrew_packages: }
-  
+
+  package {'2Do':
+	source   => "/Users/${::luser}/Dropbox/Config/Software/2Do/2Do-1.5.2.dmg",
+	provider => 'appdmg',
+  }  
   
   package {'7zX':
 	source   => "/Users/${::luser}/Dropbox/Config/Software/7xX/7zX_1.7.1.dmg",
