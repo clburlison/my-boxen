@@ -49,5 +49,10 @@ class people::clburlison (
   		target  => "/Users/${::luser}/src/work/",
   		require => File["/Users/${::luser}/src/work"]
     }
+	
+    file { "/Users/${::luser}/my-repo":
+  		ensure  => link,
+  		target  => "/opt/boxen/repo",
+    }
 
 }

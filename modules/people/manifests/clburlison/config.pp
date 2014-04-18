@@ -136,8 +136,13 @@ class people::clburlison::config (
   repository { 'dotfiles':
 	source => 'clburlison/dotfiles',
 	path   => "/Users/${::luser}/src/mine/dotfiles",
-   }
-   
+  }
+  
+  # Can't have this file in the public.
+  file { "/Users/${::luser}/.s3cfg":
+     ensure  => present,
+     source	=> "/Users/${::luser}/Dropbox/Config/User/.s3cfg",
+   } 
  
   ################
   # Recovery MSG #
@@ -153,13 +158,12 @@ class people::clburlison::config (
   ###########################
   # License VMWare Fusion 6 #
   ###########################
-  
-  # file { "/Library/VMWare Fusion/license-fusion-60-e3-201303":
-  #  	ensure  => present,
-  #  	source	=> "/Users/${::luser}/Dropbox/Config/Preferences/System/Library/VMWare Fusion/license-fusion-60-e3-201303",
-  #  	owner   => root,
-  #  	group   => wheel,
-  #    mode    => 0644,
-  #  } 
+  file { "/Library/Preferences/VMWare Fusion/license-fusion-60-e3-201303":
+   	ensure  => present,
+   	source	=> "/Users/${::luser}/Dropbox/Config/System/Library/Preferences/VMWare Fusion/license-fusion-60-e3-201303",
+   	owner   => root,
+   	group   => wheel,
+    mode    => 0644,
+   } 
 
 }

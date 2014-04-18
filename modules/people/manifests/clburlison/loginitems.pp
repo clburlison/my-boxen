@@ -6,13 +6,6 @@ class people::clburlison::loginitems {
 	   hidden => true,
 	   require => Class['caffeine'],
 	}
-	
-	osx_login_item { 'CrashPlan menu bar':
-	   name => 'CrashPlan menu bar',
-	   path => '/Applications/CrashPlan/Contents/Resources/CrashPlan menu bar.app',
-	   hidden => true,
-	   require => Class['crashplan'],
-	}
 		
 	osx_login_item { 'Dropbox':
 	   name => 'Dropbox',
