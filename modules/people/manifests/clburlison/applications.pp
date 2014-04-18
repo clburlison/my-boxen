@@ -95,6 +95,14 @@ class people::clburlison::applications {
 	provider => 'appdmg',
   }
   
+  file { "/Applications/munki_repo.command":
+   	ensure  => link,
+   	source	=> "/Users/${::luser}/Dropbox/Config/User/Applications/munki_repo.command",
+   	owner   => "${::luser}",
+   	group   => admin,
+    mode    => 0744,
+   } 
+  
   package { 'PackageMaker':
   source   => "/Users/${::luser}/Dropbox/Config/Software/PackageMaker/PackageMaker-3.0.6.dmg",
   provider => 'appdmg',
