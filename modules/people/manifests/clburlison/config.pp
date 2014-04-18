@@ -158,12 +158,21 @@ class people::clburlison::config (
   ###########################
   # License VMWare Fusion 6 #
   ###########################
+  if !defined(File["/Library/Preferences/VMWare Fusion/"]){
+      file {"/Library/Preferences/VMWare Fusion/":
+          ensure => directory,
+		  owner  => root,
+		  group  => wheel,
+      }
+  }
+  
   file { "/Library/Preferences/VMWare Fusion/license-fusion-60-e3-201303":
    	ensure  => present,
    	source	=> "/Users/${::luser}/Dropbox/Config/System/Library/Preferences/VMWare Fusion/license-fusion-60-e3-201303",
    	owner   => root,
    	group   => wheel,
     mode    => 0644,
+	require => File["/Library/Preferences/VMWare Fusion/"]
    } 
 
 }
