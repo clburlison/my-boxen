@@ -101,7 +101,7 @@ class people::clburlison::config (
   repository { 'oh-my-zsh':
 	source => 'robbyrussell/oh-my-zsh',
 	path   => "/Users/${::luser}/.oh-my-zsh",
-    ensure => latest,
+    # ensure => latest,
    }
   
   file { "/Users/${::luser}/src/mine/oh-my-zsh":
