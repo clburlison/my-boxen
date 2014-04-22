@@ -97,19 +97,12 @@ class people::clburlison::config (
       require => Boxen::Project['luggage_local']
   }
   
-  # Configure my personal oh-my-zsh settings
+  # download oh-my-zsh repo
   repository { 'oh-my-zsh':
-	source => 'clburlison/oh-my-zsh',
+	source => 'robbyrussell/oh-my-zsh',
 	path   => "/Users/${::luser}/.oh-my-zsh",
-    #ensure => latest,
+    ensure => latest,
    }
-
-  # this is now managed with my dotfiles repo
-  /*file { "/Users/${::luser}/.zshrc":
-	ensure  => link,
-	target  => "/Users/${::luser}/.oh-my-zsh/clburlison-zshrc",
-	require => Repository['oh-my-zsh']
-  }*/
   
   file { "/Users/${::luser}/src/mine/oh-my-zsh":
 	ensure  => link,
