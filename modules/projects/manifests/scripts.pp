@@ -10,6 +10,12 @@ class projects::scripts (
 	    }
 	}
 	
+	boxen::project { 'Ginja':
+		dir		=> "${my_sourcedir}/others/scripts/ginja",
+		source	=> 'Ginja/Admin_Scripts',
+		require => File["/Users/${::luser}/src/others/scripts"],
+	}
+	
 	boxen::project { 'grahamgilbert':
 		dir		=> "${my_sourcedir}/others/scripts/grahamgilbert",
 		source	=> 'grahamgilbert/macscripts',
