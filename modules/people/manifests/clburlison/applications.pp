@@ -108,6 +108,11 @@ class people::clburlison::applications {
   provider => 'appdmg',
   }
   
+  package {'Packages by Whitebox':
+	source   => "/Users/${::luser}/Dropbox/Config/Software/Packages/Packages-1.1.1.dmg",
+	provider => 'pkgdmg',
+  }
+  
   /*package { 'platypus':
     source   => "/Users/${::luser}/Dropbox/Config/Software/Platypus/platypus.zip",
     provider => 'compressed_app',
