@@ -10,7 +10,7 @@ class people::clburlison::applications {
   include firefox
   include flux
   include handbrake
-  include istatmenus4
+  # include istatmenus4
   include onepassword
   include sequel_pro
   include skype
