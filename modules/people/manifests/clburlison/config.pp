@@ -167,5 +167,27 @@ class people::clburlison::config (
     mode    => 0644,
 	require => File["/Library/Preferences/VMWare Fusion/"]
    } 
+   
+  #################################
+  # Add Tunnelblick Configuration #
+  #################################
+   if !defined(File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]){
+       file {"/Users/${::luser}/Library/Application Support/Tunnelblick/":
+         ensure => directory,
+	     owner   => $my_username,
+	     group   => staff,
+	     mode    => 0755,
+        }
+   } 
+   
+   file { "/Users/${::luser}/Library/Application Support/Tunnelblick/Configurations/":
+    	ensure  => present,
+    	source	=> "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/Tunnelblick/Configurations/",
+   	  	owner   => $my_username,
+  	   	group   => staff,
+  	   	mode    => 0755,
+		recurse => true,
+ 		require => File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]
+    }
 
 }
