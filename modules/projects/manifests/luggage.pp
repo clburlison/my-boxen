@@ -9,4 +9,9 @@ class projects::luggage (
 		source	=>	'unixorn/luggage',
 		require =>  Package['PackageMaker'],
 	}
+	
+	# exec { 'setup the Luggage':
+	#     	command => "cd $HOME/src/others/luggage; sudo make bootstrap_files",
+	#     	require => Boxen::Project['luggage']
+	# }
 }

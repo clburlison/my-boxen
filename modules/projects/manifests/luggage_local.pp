@@ -7,5 +7,13 @@ class projects::luggage_local (
 	boxen::project { 'luggage_local':
 		dir		=>	"${my_sourcedir}/mine/luggage_local",
 		source	=>	'clburlison/luggage_local',
+		require => Boxen::Project['luggage']
 	}
+    
+	file { "/usr/local/share/luggage/luggage.local":
+        ensure  => link,
+        target  => "${my_sourcedir}/mine/luggage_local/luggage.local",
+		require => Boxen::Project['luggage_local']
+	}
+	
 }

@@ -86,17 +86,9 @@ class people::clburlison::config (
       value  => 'true',
   }
   
-  ##############################
-  # the luggage and zsh config #
-  ##############################
-  
-  # Config the luggage
-  file { "/usr/local/share/luggage/luggage.local":
-      ensure  => link,
-      target  => "${my_sourcedir}/mine/luggage_local/luggage.local",
-      require => Boxen::Project['luggage_local']
-  }
-  
+  ##############
+  # zsh config #
+  ##############
   # download oh-my-zsh repo
   repository { 'oh-my-zsh':
 	source => 'robbyrussell/oh-my-zsh',
