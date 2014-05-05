@@ -182,4 +182,22 @@ class people::clburlison::config (
  		require => File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]
     }
 
+  ####################################
+  # Suspicious Package for Quicklook #
+  ####################################
+		if !defined(File['/Library/QuickLook']){
+			file { '/Library/QuickLook':
+				ensure	=>	directory,
+			}
+		}
+		
+		file {'/Library/QuickLook/Suspicious Package.qlgenerator':
+			ensure	=> present,
+			source	=> 'puppet:///modules/people/clburlison/QuickLook/Suspicious Package.qlgenerator',
+            owner   => root,
+            group   => wheel,
+            mode    => '0644',
+			recurse => true,
+		}
+
 }

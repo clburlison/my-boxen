@@ -123,6 +123,11 @@ class people::clburlison::applications {
   	provider => 'appdmg',
   }
   
+  package { 'Remote Desktop Serial':
+  	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/ARD_serial.dmg",
+  	provider => 'pkgdmg',
+  }
+  
   package {'Textwrangler':
 	source   => 'http://pine.barebones.com/files/TextWrangler_4.5.8.dmg',
 	provider => 'appdmg',
