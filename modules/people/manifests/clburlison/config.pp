@@ -19,6 +19,7 @@ class people::clburlison::config (
   include osx::global::expand_save_dialog
   include osx::universal_access::ctrl_mod_zoom # enables zoom by scrolling while holding Control
   include osx::no_network_dsstores # disable creation of .DS_Store files on network shares
+  include osx::global::expand_save_dialog
 
   # Stop Preview re-opening documents
   boxen::osx_defaults { 'Stop Preview re-opening documents':
@@ -141,12 +142,23 @@ class people::clburlison::config (
      ensure  => present,
      source	=> "/Users/${::luser}/Dropbox/Config/User/.s3cfg",
    } 
- 
+   
+  #####################
+  # Setup /etc/hosts  #
+  #####################
+  if ($::hostname == "011-adm-maccb"){
+	file {'/private/etc/hosts':
+		ensure	=> present,
+		source	=> 'puppet:///modules/people/clburlison/hosts',
+ 		  owner   => root,
+ 		  group   => wheel,
+ 		  mode    => '0644',
+	  }
+  }
+   
   ################
   # Recovery MSG #
-  ################
-  include osx::global::expand_save_dialog
-  
+  ################  
   if ($::hostname == "011-adm-maccb") or ($::hostname == "boxen"){
 	  $recovery_message = "Property of Birdville ISD, please contact Clayton Burlison if found. clayton.burlison@birdvilleschools.net or 817-547-3819."
 	  osx::recovery_message { $recovery_message: }
