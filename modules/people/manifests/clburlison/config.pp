@@ -43,6 +43,19 @@ class people::clburlison::config (
     notify => Exec['killall Finder'];
   }
   
+  boxen::osx_defaults { 'Show full date in menu bar':
+    user   => $::boxen_user,
+    key    => 'DateFormat',
+    domain => 'com.apple.menuextra.clock.plist',
+    value  => 'EEE MMM d  h:mm a',
+    notify => Exec['killall SystemUIServer'];
+  }
+  
+  exec { 'killall SystemUIServer':
+  	command => "/usr/bin/killall SystemUIServer; /usr/bin/killall -u $my_username cfprefsd",
+  	
+  }
+  
   boxen::osx_defaults { 'Disable Gatekeeper':
     domain   => '/var/db/SystemPolicy-prefs.plist',
     key    => 'enabled',
@@ -199,5 +212,19 @@ class people::clburlison::config (
             mode    => '0644',
 			recurse => true,
 		}
-
+		
+  ##################################
+  # Color Scheme for TextWrangler #
+  ##################################	
+		if !defined(File["$my_homedir/Library/Application Support/TextWrangler/"]){
+			file { "$my_homedir/Library/Application Support/TextWrangler/":
+				ensure	=>	directory,
+			}
+		}
+		
+		file { "$my_homedir/Library/Application Support/TextWrangler/Color Schemes/":
+			ensure	=> present,
+			source	=> 'puppet:///modules/people/clburlison/TextWrangler/Color Schemes/',
+			recurse => true,
+		}
 }
