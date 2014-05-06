@@ -207,6 +207,23 @@ class people::clburlison::config (
  		require => File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]
     }
 
+   #################################
+   # Add SourceTree Registration   #
+   #################################
+    if !defined(File["/Users/${::luser}/Library/Application Support/SourceTree/"]){
+        file {"/Users/${::luser}/Library/Application Support/SourceTree/":
+         ensure => directory,
+ 	     owner   => $my_username,
+         }
+    } 
+   
+    file { "/Users/${::luser}/Library/Application Support/SourceTree/sourcetree.license":
+     	ensure  => present,
+     	source	=> "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/SourceTree/sourcetree.license",
+    	owner   => $my_username,
+  		require => File["/Users/${::luser}/Library/Application Support/SourceTree/"]
+     }
+
   ####################################
   # Suspicious Package for Quicklook #
   ####################################
