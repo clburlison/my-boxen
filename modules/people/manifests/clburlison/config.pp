@@ -207,13 +207,28 @@ class people::clburlison::config (
  		require => File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]
     }
 
+   ############################
+   # Add Trim Enabler License #
+   ############################
+    if !defined(File["/Users/${::luser}/Library/Application Support/Trim Enabler/"]){
+        file {"/Users/${::luser}/Library/Application Support/Trim Enabler/":
+          	ensure => directory,
+         }
+    } 
+   
+    file { "/Users/${::luser}/Library/Application Support/Trim Enabler/license":
+     	ensure  => present,
+     	source	=> "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/Trim Enabler/license",
+  		require => File["/Users/${::luser}/Library/Application Support/Trim Enabler/"]
+     }
+
    #################################
    # Add SourceTree Registration   #
    #################################
     if !defined(File["/Users/${::luser}/Library/Application Support/SourceTree/"]){
         file {"/Users/${::luser}/Library/Application Support/SourceTree/":
-         ensure => directory,
- 	     owner   => $my_username,
+        	ensure => directory,
+ 	    	owner   => $my_username,
          }
     } 
    
