@@ -23,6 +23,7 @@ class people::clburlison::applications {
   include tunnelblick
   # include utorrent
   include vagrant
+  include virtualbox
   include vlc
   include vmware_fusion
   
