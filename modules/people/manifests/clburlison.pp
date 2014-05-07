@@ -11,6 +11,7 @@ class people::clburlison (
     include people::clburlison::loginitems
     include people::clburlison::params	
 	include people::clburlison::ssh_keys
+	include people::clburlison::vagrant
     include projects::all
 	
   
