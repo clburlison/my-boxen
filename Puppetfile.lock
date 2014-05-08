@@ -219,14 +219,14 @@ GITHUBTARBALL
     xquartz (1.1.1)
 
 GITHUBTARBALL
+  remote: clburlison/puppet-autodmg
+  specs:
+    autodmg (0.0.2)
+
+GITHUBTARBALL
   remote: glarizza/puppet-property_list_key
   specs:
     property_list_key (0.2.0)
-
-GITHUBTARBALL
-  remote: grahamgilbert/puppet-autodmg
-  specs:
-    autodmg (0.0.1)
 
 GITHUBTARBALL
   remote: grahamgilbert/puppet-dockutil
@@ -254,7 +254,7 @@ GITHUBTARBALL
     module-data (0.0.3)
 
 DEPENDENCIES
-  autodmg (= 0.0.1)
+  autodmg (= 0.0.2)
   boxen (= 3.4.2)
   caffeine (= 1.0.0)
   calibre (= 3.1.0)

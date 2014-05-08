@@ -15,3 +15,4 @@ fe80::1%lo0     localhost
 192.168.33.13   mav
 192.168.56.101  munkireport.dev
 # 192.168.104.193 011-ctemac3
+192.168.82.130  puppet-learn

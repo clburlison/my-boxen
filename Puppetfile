@@ -60,7 +60,7 @@ github "xquartz",     "1.1.1"
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
 
-github "autodmg",	"0.0.1",	:repo => "grahamgilbert/puppet-autodmg"
+github "autodmg",	"0.0.2",	:repo => "clburlison/puppet-autodmg"
 github "caffeine",    "1.0.0"
 github "calibre",	"3.1.0"
 github "chrome",      "1.1.2"
