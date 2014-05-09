@@ -47,7 +47,7 @@ class people::clburlison::applications {
   }
   
   package {'Adobe Flash':
-	source   => 'http://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_12_osx_pkg.dmg',
+	source   => 'http://fpdownload.macromedia.com/get/flashplayer/pdc/13.0.0.206/install_flash_player_osx.dmg',
 	provider => 'pkgdmg',
   }
   

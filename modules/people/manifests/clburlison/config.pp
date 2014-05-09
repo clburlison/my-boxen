@@ -22,7 +22,6 @@ class people::clburlison::config (
   include osx::no_network_dsstores # disable creation of .DS_Store files on network shares
   include osx::disable_app_quarantine
 
-  # Stop Preview re-opening documents
   boxen::osx_defaults { 'Stop Preview re-opening documents':
 	ensure => present,
 	domain => 'com.apple.Preview',
@@ -84,7 +83,7 @@ class people::clburlison::config (
         domain => 'com.apple.TimeMachine',
         value  => 'true',
         type   => 'bool',
-        user   => $::boxen_user;
+        user   => $::boxen_user,
   }
   
   boxen::osx_defaults { 'Show time connected in the VPN menubar item':
@@ -93,7 +92,7 @@ class people::clburlison::config (
       type   => 'bool',
       value  => 'true',
   }
-  
+ 
   ##############
   # zsh config #
   ##############
@@ -134,7 +133,7 @@ class people::clburlison::config (
   # Can't have this file in the public.
   file { "/Users/${::luser}/.s3cfg":
      ensure  => present,
-     source	=> "/Users/${::luser}/Dropbox/Config/User/.s3cfg",
+     source	=> "/Users/${::luser}/Dropbox/Config/User/dotfiles/s3cfg",
    } 
    
   #####################
@@ -183,6 +182,21 @@ class people::clburlison::config (
   	  } 
 	 }  
 	 
+	 ######################
+	 # Flux Configuration #
+	 ######################
+	 file { "/Users/${::luser}/Library/Preferences/org.herf.Flux.plist":
+	  	ensure  => link,
+	  	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Preferences/org.herf.Flux.plist",
+	 } 
+
+	 ######################
+	 # Transmit Configuration #
+	 ######################
+	 file { "/Users/${::luser}/Library/Application Support/Transmit":
+	  	ensure  => link,
+	  	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/Transmit/",
+	} 
 	 
   #######################
   # Set Desktop Picture #
@@ -279,22 +293,31 @@ class people::clburlison::config (
   		require => File["/Users/${::luser}/Library/Application Support/Trim Enabler/"]
      }
 
-   #################################
-   # Add SourceTree Registration   #
-   #################################
-    if !defined(File["/Users/${::luser}/Library/Application Support/SourceTree/"]){
-        file {"/Users/${::luser}/Library/Application Support/SourceTree/":
-        	ensure => directory,
- 	    	owner   => $my_username,
-         }
-    } 
+   ###############################################
+   # Add SourceTree Configuration Data & License #
+   ###############################################
+    file { "/Users/${::luser}/Library/Application Support/SourceTree":
+	   	ensure  => link,
+	   	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/SourceTree/",
+	 } 
+	 
+    #################################
+    # Add 1Password 4 License File  #
+    #################################
+     if !defined(File["/Users/${::luser}/Library/Application Support/1Password 4/"]){
+         file {"/Users/${::luser}/Library/Application Support/1Password 4/":
+         	ensure => directory,
+  	    	owner   => $my_username,
+          }
+     } 
    
-    file { "/Users/${::luser}/Library/Application Support/SourceTree/sourcetree.license":
-     	ensure  => present,
-     	source	=> "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/SourceTree/sourcetree.license",
-    	owner   => $my_username,
-  		require => File["/Users/${::luser}/Library/Application Support/SourceTree/"]
-     }
+     file { "/Users/${::luser}/Library/Application Support/1Password 4/License/":
+      	ensure  => present,
+      	source	=> "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/1Password 4/License/",
+     	owner   => $my_username,
+		recurse => true,
+   		require => File["/Users/${::luser}/Library/Application Support/1Password 4/"]
+      }	 
 
   ####################################
   # Suspicious Package for Quicklook #
@@ -310,9 +333,9 @@ class people::clburlison::config (
 	file {'/Library/QuickLook/Suspicious Package.qlgenerator':
 		ensure	=> present,
 		source	=> 'puppet:///modules/people/clburlison/QuickLook/Suspicious Package.qlgenerator',
-      owner   => root,
-      group   => wheel,
-      mode    => '0644',
+	    owner   => root,
+	    group   => wheel,
+	    mode    => '0644',
 		recurse => true,
 	}
 		

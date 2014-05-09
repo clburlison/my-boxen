@@ -36,7 +36,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-dockutil
   specs:
-    dockutil (0.2.0)
+    dockutil (0.1.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-dropbox
@@ -71,7 +71,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
-    git (2.3.0)
+    git (2.3.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-go
@@ -257,14 +257,14 @@ DEPENDENCIES
   colloquy (= 1.0.0)
   crashplan (= 1.0.1)
   dnsmasq (= 1.0.1)
-  dockutil (= 0.2.0)
+  dockutil (= 0.1.2)
   dropbox (= 1.2.0)
   evernote (= 2.0.5)
   firefox (= 1.1.9)
   flux (= 1.0.1)
   foreman (= 1.2.0)
   gcc (= 2.0.100)
-  git (= 2.3.0)
+  git (= 2.3.1)
   go (= 1.1.0)
   handbrake (= 1.0.1)
   homebrew (= 1.9.2)
