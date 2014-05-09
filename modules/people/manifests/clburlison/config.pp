@@ -17,9 +17,10 @@ class people::clburlison::config (
   include osx::finder::unhide_library
   include osx::finder::enable_quicklook_text_selection
   include osx::global::expand_save_dialog
+  include osx::global::expand_print_dialog
   include osx::universal_access::ctrl_mod_zoom # enables zoom by scrolling while holding Control
   include osx::no_network_dsstores # disable creation of .DS_Store files on network shares
-  include osx::global::expand_save_dialog
+  include osx::disable_app_quarantine
 
   # Stop Preview re-opening documents
   boxen::osx_defaults { 'Stop Preview re-opening documents':
@@ -54,7 +55,7 @@ class people::clburlison::config (
   
   exec { 'killall SystemUIServer':
   	command => "/usr/bin/killall SystemUIServer; /usr/bin/killall -u $my_username cfprefsd",
-  	
+	refreshonly => true
   }
   
   boxen::osx_defaults { 'Disable Gatekeeper':
@@ -69,17 +70,10 @@ class people::clburlison::config (
   	value  => 'true',
   }
   
-  boxen::osx_defaults { 'Copy text from QuickLook':
-      ensure => present,
-      domain => 'com.apple.finder',
-      key    => 'QLEnableTextSelection',
-      value  => 'YES',
-  }
-  
   boxen::osx_defaults { 'Finder Status Bar':
 	 ensure	=> 	present,
 	 domain	=>	'com.apple.finder',
-	 key	=>	'ShowStatusBar',
+	 key		=>	'ShowStatusBar',
 	 value	=>	'YES',
   }
   
@@ -155,7 +149,41 @@ class people::clburlison::config (
  		  mode    => '0644',
 	  }
   }
-  
+ 
+	###########################################
+	# Configure GeekTool Desktop Display Info #
+	###########################################
+	if !defined(File["/Users/${::luser}/Library/"]){
+		file {"/Users/${::luser}/Library/":
+			ensure	=>	directory,
+			owner  => $my_username,
+			group  => staff,
+			mode  => '0700',
+		}
+	}
+	
+	if ($::hostname == "011-adm-maccb"){
+	file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geeklet.shell.plist":
+		ensure	=> present,
+		source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geeklet.shell.plist',
+		mode		=> 0644,
+		require	=> File["/Users/${::luser}/Library/"]
+	  }
+  	file {"/Users/${::luser}/Library/Preferences/org.tynsoe.GeekTool.plist":
+  		ensure	=> present,
+  		source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.GeekTool.plist',
+  		mode		=> 0644,
+  		require	=> File["/Users/${::luser}/Library/"]
+  	  }
+  	file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geektool3.plist":
+  		ensure	=> present,
+  		source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geektool3.plist',
+  		mode		=> 0644,
+  		require	=> File["/Users/${::luser}/Library/"]
+  	  } 
+	 }  
+	 
+	 
   #######################
   # Set Desktop Picture #
   #######################
@@ -182,6 +210,7 @@ class people::clburlison::config (
   
   exec { 'set_desktop_picture':
   	command => "/Library/Management/set_desktops/set_desktops.py --path /Library/Management/set_desktops/grey.png",
+	refreshonly => true
   }
    
   ################
@@ -275,7 +304,6 @@ class people::clburlison::config (
 		  ensure	=>	directory,
  		  owner  => root,
  		  group  => wheel,
-			
 		}
 	}
 	

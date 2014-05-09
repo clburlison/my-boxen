@@ -19,7 +19,7 @@ class people::clburlison::applications {
   include steam
   include teamviewer
   include textmate::textmate2::release
-  # include textwrangler
+  include textwrangler
   include tunnelblick
   # include utorrent
   include vagrant
@@ -127,11 +127,6 @@ class people::clburlison::applications {
   package { 'Remote Desktop Serial':
   	source	 => "/Users/${::luser}/Dropbox/Config/Software/RemoteDesktop/ARD_serial.dmg",
   	provider => 'pkgdmg',
-  }
-  
-  package {'Textwrangler':
-	source   => 'http://pine.barebones.com/files/TextWrangler_4.5.8.dmg',
-	provider => 'appdmg',
   }
   
   package { 'Transmit':

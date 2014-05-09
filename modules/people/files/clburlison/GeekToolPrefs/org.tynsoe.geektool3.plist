@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AutoUpdate</key>
+	<false/>
+	<key>FrameConversionDone</key>
+	<true/>
+	<key>GeekletOrder</key>
+	<array>
+		<string>91AD6DFE-D760-44F1-8190-FA75645E7BC2</string>
+	</array>
+	<key>Groups</key>
+	<array>
+		<dict>
+			<key>GroupContent</key>
+			<array>
+				<string>91AD6DFE-D760-44F1-8190-FA75645E7BC2</string>
+			</array>
+			<key>GroupEnabled</key>
+			<true/>
+			<key>GroupName</key>
+			<string>Default Group</string>
+		</dict>
+	</array>
+	<key>NSNavLastRootDirectory</key>
+	<string>~/Desktop</string>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>2049 91 445 270 0 0 2560 1418 </string>
+	<key>PropertiesOrigin</key>
+	<string>{250, 610}</string>
+</dict>
+</plist>

@@ -22,12 +22,12 @@ class people::clburlison::loginitems {
 	}
 	
 	# managed with a profile
-	/*osx_login_item { 'GeekTool':
+	osx_login_item { 'GeekTool':
 	   name => 'GeekTool',
-	   path => '/Applications/Contents/PlugIns/GeekTool.prefPane/Contents/Resources/GeekTool Helper.app',
-	   hidden => true,
+	   path => '/Applications/GeekTool.app/Contents/PlugIns/GeekTool.prefPane/Contents/Resources/GeekTool Helper.app',
+	   hidden => false,
 	   require => Package['Geektool'],
-	}*/
+	}
 	
 	osx_login_item { 'Tunnelblick':
 	   name => 'Tunnelblick',

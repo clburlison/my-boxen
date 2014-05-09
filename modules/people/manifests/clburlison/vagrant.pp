@@ -30,7 +30,8 @@ class people::clburlison::vagrant (
   ########################################
 	exec { 'plugin-install':
 		command => "vagrant plugin install vagrant-vmware-fusion",
-		# require => File["/Applications/Vagrant/bin/vagrant"]	
+		require	=> File["/Users/${::luser}/.vagrant.d/"],
+		refreshonly => true,
 	}
 
 }
