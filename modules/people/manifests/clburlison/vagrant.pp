@@ -19,9 +19,10 @@ class people::clburlison::vagrant (
    } 
    
    file { "/Users/${::luser}/.vagrant.d/license-vagrant-vmware-fusion.lic":
-    	ensure  => present,
+    	ensure	=> present,
     	source	=> "/Users/${::luser}/Dropbox/Config/User/vagrant.d/license-vagrant-vmware-fusion.lic",
- 		require => File["/Users/${::luser}/.vagrant.d/"]
+ 		require	=> File["/Users/${::luser}/.vagrant.d/"],
+		notify 	=> Exec['plugin-install'],
     }
 	
   ########################################

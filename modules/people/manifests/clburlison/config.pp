@@ -155,6 +155,34 @@ class people::clburlison::config (
  		  mode    => '0644',
 	  }
   }
+  
+  #######################
+  # Set Desktop Picture #
+  #######################
+	if !defined(File['/Library/Management/']){
+		file { '/Library/Management/':
+			ensure	=>	directory,
+ 		 	owner  => root,
+ 		 	group  => wheel,
+		}
+	}
+  
+  if ($::hostname == "011-adm-maccb"){
+	file {'/Library/Management/set_desktops/':
+		ensure	=> present,
+		source	=> 'puppet:///modules/people/clburlison/set_desktops/',
+ 		owner   => root,
+ 		group   => wheel,
+ 		mode    => '0755',
+		recurse => true,
+		notify => Exec['set_desktop_picture'],
+		require => File['/Library/Management/'],
+	  }
+  }
+  
+  exec { 'set_desktop_picture':
+  	command => "/Library/Management/set_desktops/set_desktops.py --path /Library/Management/set_desktops/grey.png",
+  }
    
   ################
   # Recovery MSG #
@@ -170,7 +198,7 @@ class people::clburlison::config (
   ###########################
   if !defined(File["/Library/Preferences/VMWare Fusion/"]){
       file {"/Library/Preferences/VMWare Fusion/":
-          ensure => directory,
+        ensure => directory,
 		  owner  => root,
 		  group  => wheel,
       }
@@ -181,8 +209,8 @@ class people::clburlison::config (
    	source	=> "/Users/${::luser}/Dropbox/Config/System/Library/Preferences/VMWare Fusion/license-fusion-60-e3-201303",
    	owner   => root,
    	group   => wheel,
-    mode    => 0644,
-	require => File["/Library/Preferences/VMWare Fusion/"]
+   	mode    => 0644,
+		require => File["/Library/Preferences/VMWare Fusion/"]
    } 
    
   #################################
@@ -190,19 +218,19 @@ class people::clburlison::config (
   #################################
    if !defined(File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]){
        file {"/Users/${::luser}/Library/Application Support/Tunnelblick/":
-         ensure => directory,
+        ensure => directory,
 	     owner   => $my_username,
 	     group   => staff,
-	     mode    => 0755,
+	     mode    => 0750,
         }
    } 
    
    file { "/Users/${::luser}/Library/Application Support/Tunnelblick/Configurations/":
     	ensure  => present,
     	source	=> "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/Tunnelblick/Configurations/",
-   	  	owner   => $my_username,
-  	   	group   => staff,
-  	   	mode    => 0755,
+   	owner   => $my_username,
+  	   group   => staff,
+  	   mode    => 0755,
 		recurse => true,
  		require => File["/Users/${::luser}/Library/Application Support/Tunnelblick/"]
     }
@@ -242,33 +270,36 @@ class people::clburlison::config (
   ####################################
   # Suspicious Package for Quicklook #
   ####################################
-		if !defined(File['/Library/QuickLook']){
-			file { '/Library/QuickLook':
-				ensure	=>	directory,
-			}
+	if !defined(File['/Library/QuickLook']){
+		file { '/Library/QuickLook':
+		  ensure	=>	directory,
+ 		  owner  => root,
+ 		  group  => wheel,
+			
 		}
-		
-		file {'/Library/QuickLook/Suspicious Package.qlgenerator':
-			ensure	=> present,
-			source	=> 'puppet:///modules/people/clburlison/QuickLook/Suspicious Package.qlgenerator',
-            owner   => root,
-            group   => wheel,
-            mode    => '0644',
-			recurse => true,
-		}
+	}
+	
+	file {'/Library/QuickLook/Suspicious Package.qlgenerator':
+		ensure	=> present,
+		source	=> 'puppet:///modules/people/clburlison/QuickLook/Suspicious Package.qlgenerator',
+      owner   => root,
+      group   => wheel,
+      mode    => '0644',
+		recurse => true,
+	}
 		
   ##################################
   # Color Scheme for TextWrangler #
   ##################################	
-		if !defined(File["$my_homedir/Library/Application Support/TextWrangler/"]){
-			file { "$my_homedir/Library/Application Support/TextWrangler/":
-				ensure	=>	directory,
-			}
+	if !defined(File["$my_homedir/Library/Application Support/TextWrangler/"]){
+		file { "$my_homedir/Library/Application Support/TextWrangler/":
+			ensure	=>	directory,
 		}
-		
-		file { "$my_homedir/Library/Application Support/TextWrangler/Color Schemes/":
-			ensure	=> present,
-			source	=> 'puppet:///modules/people/clburlison/TextWrangler/Color Schemes/',
-			recurse => true,
-		}
+	}
+	
+	file { "$my_homedir/Library/Application Support/TextWrangler/Color Schemes/":
+		ensure	=> present,
+		source	=> 'puppet:///modules/people/clburlison/TextWrangler/Color Schemes/',
+		recurse => true,
+	}
 }
