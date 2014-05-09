@@ -15,4 +15,8 @@ class people::clburlison::git (
   git::config::global{ 'user.email':
     value => 'clburlison@gmail.com',
   }
+  
+  git::config::global{ 'push.default':
+    value => 'simple',
+  }
 }
