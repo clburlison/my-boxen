@@ -15,3 +15,4 @@ class people::clburlison::vagrant (
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => "/Users/${::luser}/Dropbox/Config/User/vagrant.d/license-vagrant-vmware-fusion.lic",
   }
+}

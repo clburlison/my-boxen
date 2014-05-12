@@ -149,67 +149,80 @@ class people::clburlison::config (
 	  }
   }
  
-	###########################################
-	# Configure GeekTool Desktop Display Info #
-	###########################################
-	if !defined(File["/Users/${::luser}/Library/"]){
-		file {"/Users/${::luser}/Library/":
-			ensure	=>	directory,
-			owner  => $my_username,
-			group  => staff,
-			mode  => '0700',
-		}
-	}
-	
-	if ($::hostname == "011-adm-maccb"){
-	file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geeklet.shell.plist":
-		ensure	=> present,
-		source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geeklet.shell.plist',
-		mode		=> 0644,
-		require	=> File["/Users/${::luser}/Library/"]
-	  }
-  	file {"/Users/${::luser}/Library/Preferences/org.tynsoe.GeekTool.plist":
-  		ensure	=> present,
-  		source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.GeekTool.plist',
-  		mode		=> 0644,
-  		require	=> File["/Users/${::luser}/Library/"]
-  	  }
-  	file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geektool3.plist":
-  		ensure	=> present,
-  		source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geektool3.plist',
-  		mode		=> 0644,
-  		require	=> File["/Users/${::luser}/Library/"]
-  	  } 
-	 }  
-	 
-	 ######################
-	 # Flux Configuration #
-	 ######################
-	 file { "/Users/${::luser}/Library/Preferences/org.herf.Flux.plist":
-	  	ensure  => link,
-	  	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Preferences/org.herf.Flux.plist",
-	 } 
-
-	 ######################
-	 # Transmit Configuration #
-	 ######################
-	 file { "/Users/${::luser}/Library/Application Support/Transmit":
-	  	ensure  => link,
-	  	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/Transmit/",
-	} 
-	 
-  #######################
-  # Set Desktop Picture #
-  #######################
-	if !defined(File['/Library/Management/']){
-		file { '/Library/Management/':
-			ensure	=>	directory,
- 		 	owner  => root,
- 		 	group  => wheel,
-		}
-	}
+ ################################
+ # Setup custom munki preflight #
+ ################################
+ if ($::hostname == "011-adm-maccb"){
+ file { "/usr/local/munki/preflight.d/_munki_repo.sh":
+    ensure  => present,
+    source	=> "/Users/${::luser}/Dropbox/Config/System/usr/local/munki/preflight.d/_munki_repo.sh",
+    owner => root,
+    group => 'wheel',
+    mode  => '0755',
+  	}
+  }
   
-  if ($::hostname == "011-adm-maccb"){
+ ###########################################
+ # Configure GeekTool Desktop Display Info #
+ ###########################################
+ if !defined(File["/Users/${::luser}/Library/"]){
+	file {"/Users/${::luser}/Library/":
+		ensure	=>	directory,
+		owner  => $my_username,
+		group  => staff,
+		mode  => '0700',
+	}
+ }
+
+ if ($::hostname == "011-adm-maccb"){
+ file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geeklet.shell.plist":
+	ensure	=> present,
+	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geeklet.shell.plist',
+	mode		=> 0644,
+	require	=> File["/Users/${::luser}/Library/"]
+    }
+ file {"/Users/${::luser}/Library/Preferences/org.tynsoe.GeekTool.plist":
+	ensure	=> present,
+	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.GeekTool.plist',
+	mode		=> 0644,
+	require	=> File["/Users/${::luser}/Library/"]
+   }
+ file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geektool3.plist":
+	ensure	=> present,
+	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geektool3.plist',
+	mode		=> 0644,
+	require	=> File["/Users/${::luser}/Library/"]
+   } 
+ }  
+	 
+ ######################
+ # Flux Configuration #
+ ######################
+ file { "/Users/${::luser}/Library/Preferences/org.herf.Flux.plist":
+  	ensure  => link,
+  	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Preferences/org.herf.Flux.plist",
+ } 
+
+ ######################
+ # Transmit Configuration #
+ ######################
+ file { "/Users/${::luser}/Library/Application Support/Transmit":
+  	ensure  => link,
+  	target  => "/Users/${::luser}/Dropbox/Config/User/Library/Application Support/Transmit/",
+ } 
+	 
+ #######################
+ # Set Desktop Picture #
+ #######################
+ if !defined(File['/Library/Management/']){
+	file { '/Library/Management/':
+		ensure	=>	directory,
+	 	owner  => root,
+	 	group  => wheel,
+	}
+ }
+  
+ if ($::hostname == "011-adm-maccb"){
 	file {'/Library/Management/set_desktops/':
 		ensure	=> present,
 		source	=> 'puppet:///modules/people/clburlison/set_desktops/',

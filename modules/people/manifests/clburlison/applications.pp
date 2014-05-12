@@ -80,6 +80,11 @@ class people::clburlison::applications {
  	 source   => "/Users/${::luser}/Dropbox/Config/Software/DiskInventoryX/DIX1.0Universal.dmg",
  	 provider => 'appdmg',
   }
+ 
+  package {'Drobo Dashboard':
+	source   => 'https://dl.dropboxusercontent.com/s/at6r0owerlider6/Drobo_Dashboard_Installer_2.5.2.dmg',
+	provider => 'pkgdmg',
+  }
   
   package { 'Geektool':
     source   => "http://download.tynsoe.org/GeekTool-3.1.1-311.zip",

@@ -9,7 +9,7 @@ class people::clburlison::loginitems {
 
 	osx_login_item { 'CrashPlan Menu Bar':
 	   name => 'CrashPlan Menu Bar',
-	   path => '/Applications/CrashPlan.app/Contents/Resources/CrashPlan\ menu\ bar.app ',
+	   path => "/Applications/CrashPlan.app/Contents/Resources/CrashPlan menu bar.app",
 	   hidden => false,
 	   require => Class['crashplan'],
 	}
@@ -30,7 +30,7 @@ class people::clburlison::loginitems {
 	
 	osx_login_item { 'GeekTool':
 	   name => 'GeekTool',
-	   path => '/Applications/GeekTool.app/Contents/PlugIns/GeekTool.prefPane/Contents/Resources/GeekTool\ Helper.app',
+	   path => "/Applications/GeekTool.app/Contents/PlugIns/GeekTool.prefPane/Contents/Resources/GeekTool Helper.app",
 	   hidden => false,
 	   require => Package['Geektool'],
 	}
