@@ -12,26 +12,6 @@ class people::clburlison::vagrant (
   #################################
   # Vagrant VMWare Fusion License #
   #################################
-   if !defined(File["/Users/${::luser}/.vagrant.d/"]){
-       file {"/Users/${::luser}/.vagrant.d/":
-         ensure => directory,
-        }
-   } 
-   
-   file { "/Users/${::luser}/.vagrant.d/license-vagrant-vmware-fusion.lic":
-    	ensure	=> present,
-    	source	=> "/Users/${::luser}/Dropbox/Config/User/vagrant.d/license-vagrant-vmware-fusion.lic",
- 		require	=> File["/Users/${::luser}/.vagrant.d/"],
-		notify 	=> Exec['plugin-install'],
-    }
-	
-  ########################################
-  # Install Vagrant VMWare Fusion Plugin #
-  ########################################
-	exec { 'plugin-install':
-		command => "vagrant plugin install vagrant-vmware-fusion",
-		require	=> File["/Users/${::luser}/.vagrant.d/"],
-		refreshonly => true,
-	}
-
-}
+  vagrant::plugin { 'vagrant-vmware-fusion':
+    license => "/Users/${::luser}/Dropbox/Config/User/vagrant.d/license-vagrant-vmware-fusion.lic",
+  }
