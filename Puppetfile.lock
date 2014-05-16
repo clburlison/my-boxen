@@ -36,7 +36,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-dockutil
   specs:
-    dockutil (0.1.2)
+    dockutil (0.2.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-dropbox
@@ -257,7 +257,7 @@ DEPENDENCIES
   colloquy (= 1.0.0)
   crashplan (= 1.0.1)
   dnsmasq (= 1.0.1)
-  dockutil (= 0.1.2)
+  dockutil (= 0.2.1)
   dropbox (= 1.2.0)
   evernote (= 2.0.5)
   firefox (= 1.1.9)
