@@ -5,7 +5,7 @@ class people::clburlison::applications {
   include chrome
   include colloquy
   include crashplan
-  include dropbox
+  # include dropbox
   include evernote
   include firefox
   include flux
