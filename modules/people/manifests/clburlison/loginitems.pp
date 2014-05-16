@@ -18,7 +18,7 @@ class people::clburlison::loginitems {
 	   name => 'Dropbox',
 	   path => '/Applications/Dropbox.app',
 	   hidden => true,
-	   require => Class['dropbox'],
+	   # require => Class['dropbox'],
 	}
 
 	osx_login_item { 'Flux':
