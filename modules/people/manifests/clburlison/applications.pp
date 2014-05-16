@@ -91,6 +91,20 @@ class people::clburlison::applications {
     provider => 'compressed_app',
   }
   
+  package { 'Luggage':
+    source   => "/Users/${::luser}/Dropbox/Config/Software/Luggage/luggage-20140516.dmg",
+    provider => 'pkgdmg',
+  }
+  
+  file { "/usr/local/bin/packagemaker":
+    ensure  => link,
+    target  => "/Applications/PackageMaker.app/Contents/MacOS/PackageMaker",
+	owner	=> 'root',
+	group   => 'wheel',
+	mode    => '0755',
+    require => Package['Luggage', 'PackageMaker'],
+  }
+  
   package { 'MunkiAdmin':
     source   => 'https://github.com/hjuutilainen/munkiadmin/releases/download/v0.3.0/MunkiAdmin-0.3.0.dmg',
 	provider => 'appdmg',

@@ -10,6 +10,7 @@ class projects::luggage (
 		require =>  Package['PackageMaker'],
 	}
 	
+	# this is handled manually with a my luggage-20140516.dmg (package) and the PackMaker stuff inside of applications.pp
 	# exec { 'setup the Luggage':
 	#     	command => "cd $HOME/src/others/luggage; sudo make bootstrap_files",
 	#     	require => Boxen::Project['luggage']
