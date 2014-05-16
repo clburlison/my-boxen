@@ -31,6 +31,7 @@ class people::clburlison::applications {
     's3cmd',
     'curl',
     'zsh',
+	'wget',
   ]
 
   ## Declare all Homebrew packages at once
