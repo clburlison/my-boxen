@@ -97,6 +97,11 @@ class people::clburlison::applications {
     provider => 'pkgdmg',
   }
   
+  package { 'heroku-toolbelt':
+    source   => "https://s3.amazonaws.com/assets.heroku.com/heroku-toolbelt/heroku-toolbelt.pkg",
+    provider => 'pkgdmg',
+  }  
+  
   file { "/usr/local/bin/packagemaker":
     ensure  => link,
     target  => "/Applications/PackageMaker.app/Contents/MacOS/PackageMaker",
