@@ -60,14 +60,14 @@ github "xquartz",     "1.1.1"
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
 
-github "autodmg",	"0.0.2",	:repo => "clburlison/puppet-autodmg"
+github "autodmg",	"0.0.2",	:repo => "grahamgilbert/puppet-autodmg"
 github "caffeine",    "1.0.0"
 github "calibre",	"3.1.0"
 github "chrome",      "1.1.2"
 github "colloquy",  "1.0.0"
 github "crashplan", "1.0.1"
 github "dropbox",     "1.2.0"
-github "dockutil",	"0.2.1"
+github "dockutil",	"0.2.2",	:repo => "clburlison/puppet-dockutil"
 github "evernote",  "2.0.5"
 github "firefox", "1.1.9"
 github "flux", "1.0.1"

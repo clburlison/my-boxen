@@ -34,11 +34,6 @@ GITHUBTARBALL
     dnsmasq (1.0.1)
 
 GITHUBTARBALL
-  remote: boxen/puppet-dockutil
-  specs:
-    dockutil (0.2.1)
-
-GITHUBTARBALL
   remote: boxen/puppet-dropbox
   specs:
     dropbox (1.2.0)
@@ -224,14 +219,19 @@ GITHUBTARBALL
     xquartz (1.1.1)
 
 GITHUBTARBALL
-  remote: clburlison/puppet-autodmg
+  remote: clburlison/puppet-dockutil
   specs:
-    autodmg (0.0.2)
+    dockutil (0.2.2)
 
 GITHUBTARBALL
   remote: glarizza/puppet-property_list_key
   specs:
     property_list_key (0.2.0)
+
+GITHUBTARBALL
+  remote: grahamgilbert/puppet-autodmg
+  specs:
+    autodmg (0.0.2)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -257,7 +257,7 @@ DEPENDENCIES
   colloquy (= 1.0.0)
   crashplan (= 1.0.1)
   dnsmasq (= 1.0.1)
-  dockutil (= 0.2.1)
+  dockutil (= 0.2.2)
   dropbox (= 1.2.0)
   evernote (= 2.0.5)
   firefox (= 1.1.9)

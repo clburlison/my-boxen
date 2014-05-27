@@ -1,6 +1,10 @@
-class people::clburlison::dock {
-
-    include dockutil
+class people::clburlison::dock (
+    $my_homedir   = $people::clburlison::params::my_homedir,
+    $my_sourcedir = $people::clburlison::params::my_sourcedir,
+    $my_username  = $people::clburlison::params::my_username
+    ){
+    
+	include dockutil
 
     dockutil::item { 'Chrome':
         item     => "/Applications/Google Chrome.app",
@@ -186,111 +190,97 @@ class people::clburlison::dock {
         action   => "add",
 		position => 4,
     }
-	
-	# no longer want this in my dock
-    /*dockutil::item { '~/src':
-        item     => "~/src",
-        label    => "src",
-        action   => "add",
-		position => 5,
-		}*/
     
 	
 	
-    ## Remove the default crap    
+## Remove the default crap
     dockutil::item { 'Remove Launchpad':
-        item   => "/Applications/Launchpad.app",
-        label  => "Launchpad",
-        action => "remove",
+        item   => '/Applications/Launchpad.app',
+        label  => 'Launchpad',
+        action => 'remove',
     }
-	
-    dockutil::item { 'Remove App Store':
-        item   => "/Applications/App Store.app",
-        label  => "App Store",
-        action => "remove",
-    }  
-	
-    dockutil::item { 'Remove Contacts':
-        item   => "/Applications/Contacts.app",
-        label  => "Contacts",
-        action => "remove",
-    }  
-	 
+
     dockutil::item { 'Remove Mission Control':
-        item   => "/Applications/Mission Control.app",
-        label  => "Mission Control",
-        action => "remove",
+        item   => '/Applications/Mission Control.app',
+        label  => 'Mission Control',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove Safari':
-        item   => "/Applications/Safari.app",
-        label  => "Safari",
-        action => "remove",
+        item   => '/Applications/Safari.app',
+        label  => 'Safari',
+        action => 'remove',
     }
-    
+
+    dockutil::item { 'Remove Contacts':
+        item   => '/Applications/Contacts.app',
+        label  => 'Contacts',
+        action => 'remove',
+    }
+
     dockutil::item { 'Remove Reminders':
-        item   => "/Applications/Reminders.app",
-        label  => "Reminders",
-        action => "remove",
+        item   => '/Applications/Reminders.app',
+        label  => 'Reminders',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove Notes':
-        item   => "/Applications/Notes.app",
-        label  => "Notes",
-        action => "remove",
+        item   => '/Applications/Notes.app',
+        label  => 'Notes',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove Messages':
-        item   => "/Applications/Messages.app",
-        label  => "Messages",
-        action => "remove",
+        item   => '/Applications/Messages.app',
+        label  => 'Messages',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove FaceTime':
-        item   => "/Applications/FaceTime.app",
-        label  => "FaceTime",
-        action => "remove",
+        item   => '/Applications/FaceTime.app',
+        label  => 'FaceTime',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove Photo Booth':
-        item   => "/Applications/Photo Booth.app",
-        label  => "Photo Booth",
-        action => "remove",
+        item   => '/Applications/Photo Booth.app',
+        label  => 'Photo Booth',
+        action => 'remove',
+	}
+
+    dockutil::item { 'Remove App Store':
+        item   => '/Applications/App Store.app',
+        label  => 'App Store',
+        action => 'remove',
     }
-        
+
     dockutil::item { 'Remove iPhoto':
-        item   => "/Applications/iPhoto.app",
-        label  => "iPhoto",
-        action => "remove",
+        item   => '/Applications/iPhoto.app',
+        label  => 'iPhoto',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove Maps':
-        item   => "/Applications/Maps.app",
-        label  => "Maps",
-        action => "remove",
+        item   => '/Applications/Maps.app',
+        label  => 'Maps',
+        action => 'remove',
     }
-    
+
     dockutil::item { 'Remove iBooks':
-        item   => "/Applications/iBooks.app",
-        label  => "iBooks",
-        action => "remove",
+        item   => '/Applications/iBooks.app',
+        label  => 'iBooks',
+        action => 'remove',
     }
-	
-    dockutil::item { 'Remove iTunes':
-        item   => "/Applications/iTunes.app",
-        label  => "iTunes",
-        action => "remove",
-    }
-	
-    dockutil::item { 'Remove Keynote':
-        item   => "/Applications/Keynote.app",
-        label  => "Keynote",
-        action => "remove",
-    }
-	
+
     dockutil::item { 'Remove Numbers':
-        item   => "/Applications/Numbers.app",
-        label  => "Numbers",
-        action => "remove",
+        item   => '/Applications/Numbers.app',
+        label  => 'Numbers',
+        action => 'remove',
+    }
+
+    dockutil::item { 'Remove Keynote':
+        item   => '/Applications/Keynote.app',
+        label  => 'Keynote',
+        action => 'remove',
     }
 }
