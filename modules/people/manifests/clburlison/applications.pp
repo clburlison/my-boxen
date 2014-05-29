@@ -153,5 +153,9 @@ class people::clburlison::applications {
 	source      => 'http://www.panic.com/transmit/d/Transmit%204.3.2.zip',
 	provider    => 'compressed_app',
   }
-    
+
+  package {'Quicktime 7':
+	provider => 'pkgdmg',
+	source   => 'http://support.apple.com/downloads/DL923/en_US/QuickTimePlayer7.6.6_SnowLeopard.dmg',
+  }    
 }
