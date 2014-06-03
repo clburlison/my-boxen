@@ -77,6 +77,11 @@ class people::clburlison::applications {
 	provider => 'compressed_app',
   } */
   
+  package { 'Cyberduck':
+    source   => "https://a48823c7ec3cf4539564-60c534a1284a12ce74ef84032e9b4e46.ssl.cf1.rackcdn.com/Cyberduck-4.4.4.zip",
+    provider => 'compressed_app',
+  }
+  
   package { 'disk inventory x':
  	 source   => "/Users/${::luser}/Dropbox/Config/Software/DiskInventoryX/DIX1.0Universal.dmg",
  	 provider => 'appdmg',
