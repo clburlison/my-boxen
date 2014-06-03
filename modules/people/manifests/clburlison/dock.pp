@@ -22,66 +22,73 @@ class people::clburlison::dock (
 		require  => Package['2Do']
     }
 	
+    dockutil::item { '1Password 4':
+        item     => "/Applications/1Password 4.app",
+        label    => "1Password 4",
+        position => 3,
+        action   => "add",
+    }
+	
     dockutil::item { 'Mail':
         item     => "/Applications/Mail.app",
         label    => "Mail",
-        position => 3,
+        position => 4,
         action   => "add",
     }
 	
     dockutil::item { 'Calendar':
         item     => "/Applications/Calendar.app",
         label    => "Calendar",
-        position => 4,
+        position => 5,
         action   => "add",
     }
 	
     dockutil::item { 'Adobe Photoshop CS6':
         item     => "/Applications/Adobe Photoshop CS6/Adobe Photoshop CS6.app",
         label    => "Adobe Photoshop CS6",
-        position => 5,
+        position => 6,
         action   => "add",
     }
 	
     dockutil::item { 'Adobe Premiere Pro CS6':
         item     => "/Applications/Adobe Premiere Pro CS6/Adobe Premiere Pro CS6.app",
         label    => "Adobe Premiere Pro CS6",
-        position => 6,
+        position => 7,
         action   => "add",
     }
 	
     dockutil::item { 'Adobe Media Encoder CS6':
         item     => "/Applications/Adobe Media Encoder CS6/Adobe Media Encoder CS6.app",
         label    => "Adobe Media Encoder CS6",
-        position => 7,
+        position => 8,
         action   => "add",
     }
 	
     dockutil::item { 'Pages':
         item     => "/Applications/Pages.app",
         label    => "Pages",
-        position => 8,
+        position => 9,
         action   => "add",
     }
 	
     dockutil::item { 'Preview':
         item     => "/Applications/Preview.app",
         label    => "Preview",
-        position => 9,
+        position => 10,
         action   => "add",
     }
 	
     dockutil::item { 'Spotify':
         item     => "/Applications/Spotify.app",
         label    => "Spotify",
-        position => 10,
+        position => 11,
         action   => "add",
     }
 	
     dockutil::item { 'VLC':
         item     => "/Applications/VLC.app",
         label    => "VLC",
-        position => 11,
+        position => 12,
         action   => "add",
         require  => Class['vlc'],
     }
@@ -89,14 +96,14 @@ class people::clburlison::dock (
     dockutil::item { 'TextWrangler':
         item     => "/Applications/TextWrangler.app",
         label    => "TextWrangler",
-        position => 12,
+        position => 13,
         action   => "add",
     }
 	
     dockutil::item { 'Textmate2':
         item     => "/Applications/Textmate.app",
         label    => "TextMate",
-        position => 13,
+        position => 14,
         action   => "add",
         require  => Class['textmate::textmate2::release'],
     }
@@ -104,7 +111,7 @@ class people::clburlison::dock (
     dockutil::item { 'Remote Desktop':
         item     => "/Applications/Remote Desktop.app",
         label    => "Remote Desktop",
-        position => 14,
+        position => 15,
         action   => "add",
 		require  => Package['Remote Desktop']
     }
@@ -112,7 +119,7 @@ class people::clburlison::dock (
     dockutil::item { 'VMWare':
         item     => "/Applications/VMware Fusion.app",
         label    => "VMware Fusion",
-        position => 15,
+        position => 16,
         action   => "add",
         require  => Class['vmware_fusion'],
     }
@@ -120,27 +127,20 @@ class people::clburlison::dock (
     dockutil::item { 'SourceTree':
         item     => "/Applications/SourceTree.app",
         label    => "SourceTree",
-        position => 16,
+        position => 17,
         action   => "add",
     }
 
     dockutil::item { 'MunkiAdmin':
         item     => "/Applications/MunkiAdmin.app",
         label    => "MunkiAdmin",
-        position => 17,
+        position => 18,
         action   => "add",
     }
     
     dockutil::item { 'Managed Software Center':
         item     => "/Applications/Managed Software Center.app",
         label    => "Managed Software Center",
-        position => 18,
-        action   => "add",
-    }
-    
-    dockutil::item { '1Password 4':
-        item     => "/Applications/1Password 4.app",
-        label    => "1Password 4",
         position => 19,
         action   => "add",
     }
@@ -162,7 +162,7 @@ class people::clburlison::dock (
 		
 		
     ## Add shortcuts to folders
-	dockutil::item { 'munki_repo':
+	dockutil::item { 'munki_repo.command':
         item     => "/Applications/munki_repo.command",
         label    => "munki_repo",
         action   => "add",
