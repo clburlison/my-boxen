@@ -164,7 +164,7 @@ class people::clburlison::dock (
     ## Add shortcuts to folders
 	dockutil::item { 'munki_repo.command':
         item     => "/Applications/munki_repo.command",
-        label    => "munki_repo",
+        label    => "munki_repo.command",
         action   => "add",
 		position => 1,
 		#require  => Class['munki_repo.command']
