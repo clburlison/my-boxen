@@ -236,7 +236,7 @@ class people::clburlison::config (
   }
   
   exec { 'set_desktop_picture':
-  	command => "/Library/Management/set_desktops/set_desktops.py --path /Library/Management/set_desktops/grey.png",
+  	command => "/Library/Management/set_desktops/set_desktops.py --path /Library/Management/set_desktops/LoneDruid_wallpaper.jpg",
 	refreshonly => true
   }
    
