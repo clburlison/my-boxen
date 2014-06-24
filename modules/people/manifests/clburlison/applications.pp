@@ -4,7 +4,7 @@ class people::clburlison::applications {
   include calibre
   include chrome
   include colloquy
-  include crashplan
+  # include crashplan
   # include dropbox
   include evernote
   include firefox
