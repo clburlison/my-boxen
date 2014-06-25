@@ -165,35 +165,35 @@ class people::clburlison::config (
  ###########################################
  # Configure GeekTool Desktop Display Info #
  ###########################################
- if !defined(File["/Users/${::luser}/Library/"]){
-	file {"/Users/${::luser}/Library/":
-		ensure	=>	directory,
-		owner  => $my_username,
-		group  => staff,
-		mode  => '0700',
-	}
- }
-
- if ($::hostname == "011-adm-maccb"){
- file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geeklet.shell.plist":
-	ensure	=> present,
-	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geeklet.shell.plist',
-	mode		=> 0644,
-	require	=> File["/Users/${::luser}/Library/"]
-    }
- file {"/Users/${::luser}/Library/Preferences/org.tynsoe.GeekTool.plist":
-	ensure	=> present,
-	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.GeekTool.plist',
-	mode		=> 0644,
-	require	=> File["/Users/${::luser}/Library/"]
-   }
- file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geektool3.plist":
-	ensure	=> present,
-	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geektool3.plist',
-	mode		=> 0644,
-	require	=> File["/Users/${::luser}/Library/"]
-   } 
- }  
+ # if !defined(File["/Users/${::luser}/Library/"]){
+ # 	file {"/Users/${::luser}/Library/":
+ # 		ensure	=>	directory,
+ # 		owner  => $my_username,
+ # 		group  => staff,
+ # 		mode  => '0700',
+ # 	}
+ # }
+ #
+ # if ($::hostname == "011-adm-maccb"){
+ # file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geeklet.shell.plist":
+ # 	ensure	=> present,
+ # 	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geeklet.shell.plist',
+ # 	mode		=> 0644,
+ # 	require	=> File["/Users/${::luser}/Library/"]
+ #    }
+ # file {"/Users/${::luser}/Library/Preferences/org.tynsoe.GeekTool.plist":
+ # 	ensure	=> present,
+ # 	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.GeekTool.plist',
+ # 	mode		=> 0644,
+ # 	require	=> File["/Users/${::luser}/Library/"]
+ #   }
+ # file {"/Users/${::luser}/Library/Preferences/org.tynsoe.geektool3.plist":
+ # 	ensure	=> present,
+ # 	source	=> 'puppet:///modules/people/clburlison/GeekToolPrefs/org.tynsoe.geektool3.plist',
+ # 	mode		=> 0644,
+ # 	require	=> File["/Users/${::luser}/Library/"]
+ #   }
+ # }
 	 
  ######################
  # Flux Configuration #
