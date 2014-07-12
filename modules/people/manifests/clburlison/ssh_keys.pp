@@ -44,7 +44,7 @@ class people::clburlison::ssh_keys (
 		source => "/Users/${::luser}/Dropbox/Config/User/ssh keys/amazon_ac2.pem",
         owner => "${::luser}",
         mode => '0600',
-	}
+	}	
 	
 	file { "/Users/${::luser}/.ssh/config":
 		source => "/Users/${::luser}/Dropbox/Config/User/ssh keys/config",

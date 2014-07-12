@@ -87,6 +87,11 @@ class people::clburlison::applications {
  	 provider => 'appdmg',
   }
   
+  package { 'Docker':
+    source   => "https://github.com/boot2docker/osx-installer/releases/download/v1.1.1/Boot2Docker-1.1.1.pkg",
+    provider => 'pkgdmg',
+  }
+  
   package { 'Geektool':
     source   => "http://download.tynsoe.org/GeekTool-3.1.1-311.zip",
     provider => 'compressed_app',

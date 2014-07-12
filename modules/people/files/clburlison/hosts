@@ -13,3 +13,15 @@ fe80::1%lo0     localhost
 192.168.56.101  munkireport.dev
 192.168.56.150  munki.dev
 192.168.82.130  puppet-learn
+# 192.168.10.100	home.clburlison.com
+
+
+# I can't controlz my internet usage
+# 127.0.0.1		twitch.tv
+# 127.0.0.1		www.twitch.tv
+# 127.0.0.1		youtube.com
+# 127.0.0.1		www.youtube.com
+# 127.0.0.1		facebook.com
+# 127.0.0.1		www.facebook.com
+# 127.0.0.1		twitter.com
+# 127.0.0.1		www.twitter.com
